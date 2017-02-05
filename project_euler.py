@@ -1,10 +1,11 @@
+import utils
 
 def problem_1():
     """
     If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
     Find the sum of all the multiples of 3 or 5 below 1000.
     """
-    return sum(x for x in range(1000) if x % 3 == 0 or x % 5 == 0)
+    return sum([x for x in range(1000) if not x % 3 or not x % 5])
 
 def problem_2():
     """
@@ -32,7 +33,95 @@ def problem_3():
         else: n //= i
     return n
 
+def problem_4():
+    """
+    A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+    Find the largest palindrome made from the product of two 3-digit numbers.
+    """
+    ans = 0
+    r = range(999,100,-1)
+    for x in r:
+        for y in r:
+            z = x * y
+            if str(z) == str(z)[::-1] and z > ans:
+                ans = z
+    return ans
+
+def problem_5():
+    """
+    2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+    What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+    """
+    import numpy as np
+    n = np.arange(1,21)
+
+    for i in range(1,10000000000):
+        # if not i % 1000000: print('iter %d' % i)
+        x = i/n
+        if all(y.is_integer() for y in x):
+            return i
+
+def problem_6():
+    """
+    The sum of the squares of the first ten natural numbers is, 1^2 + 2^2 + ... + 10^2 = 385
+    The square of the sum of the first ten natural numbers is, (1 + 2 + ... + 10)^2 = 552 = 3025
+    Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
+    Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+    """
+    sum_of_sqr = sum([i**2 for i in range(101)])
+    sqr_of_sum = sum(range(101))**2
+    return sqr_of_sum - sum_of_sqr
+
+def problem_7():
+    """
+    By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+    What is the 10001st prime number?
+    """
+    n = 64
+    p = 2
+    primes = []
+    while len(primes) < 10001:
+        for i in range(2, p):
+            if p % i == 0:
+                p+= 1
+                break
+        else:
+            primes.append(p)
+            p += 1
+    return primes[-1]
+
+def problem_8():
+    """
+    The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.
+    Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
+    """
+    pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
-    print(problem_3())
+        utils.time_problem(problem_1)
+        print()
