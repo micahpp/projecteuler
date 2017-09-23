@@ -1,4 +1,4 @@
-import utils as utl
+from projecteuler import utils as utl
 
 
 def problem_1():
