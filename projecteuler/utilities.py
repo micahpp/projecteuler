@@ -1,7 +1,20 @@
 from timeit import default_timer as timer
-
+import json
+import os
 
 # TODO: add n_primes function that returns a list of n primes
+
+
+tmp = os.path.dirname(os.path.abspath(__file__)).rpartition('/')[0]
+answers_fp = f'{tmp}/data/answers.json'
+
+with open(answers_fp) as f:
+    answers = json.load(f)
+
+
+def get_answer(n):
+    return answers.get(str(n))
+
 
 def time_problem(problem):
     """runs and times a function"""
@@ -22,3 +35,7 @@ def prime_sieve(n):
 def factors(n):
     """returns the factors of n"""
     return [i for i in range(1, n // 2 + 1) if not n % i] + [n]
+
+
+if __name__ == '__main__':
+    print(get_answer(1))
