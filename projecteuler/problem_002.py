@@ -1,4 +1,4 @@
-from projecteuler import utilities as utl
+from projecteuler import util
 
 
 def solution():
@@ -21,4 +21,4 @@ def solution():
 
 
 if __name__ == '__main__':
-    assert str(solution()) == utl.get_answer(2)
+    assert str(solution()) == util.get_answer(2)

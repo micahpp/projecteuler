@@ -1,4 +1,4 @@
-from projecteuler import utilities as utl
+from projecteuler import util
 
 
 def solution():
@@ -7,9 +7,9 @@ def solution():
     Find the sum of all the primes below two million.
     """
 
-    primes = utl.prime_sieve(2000000)
+    primes = util.prime_sieve(2000000)
     return sum(primes)
 
 
 if __name__ == '__main__':
-    assert str(solution()) == utl.get_answer(10)
+    assert str(solution()) == util.get_answer(10)
