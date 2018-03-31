@@ -1,14 +1,14 @@
-from timeit import default_timer as timer
 import json
-import os
+from pathlib import Path
+from timeit import default_timer as timer
+
 
 # TODO: add n_primes function that returns a list of n primes
 
+project_path = Path(__file__).parents[1]
+answers_path = Path(project_path, "data/answers.json")
 
-tmp = os.path.dirname(os.path.abspath(__file__)).rpartition('/')[0]
-answers_fp = f'{tmp}/data/answers.json'
-
-with open(answers_fp) as f:
+with open(answers_path) as f:
     answers = json.load(f)
 
 
