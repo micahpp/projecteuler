@@ -1,4 +1,4 @@
-from projecteuler import utilities as utl
+from projecteuler import util
 
 
 def solution():
@@ -22,11 +22,11 @@ def solution():
     tmp, i = 0, 1
     while True:
         tmp += i
-        factors = utl.factors(tmp)
+        factors = util.factors(tmp)
         if len(factors) > 500:
             return tmp
         i += 1
 
 
 if __name__ == '__main__':
-    assert str(solution()) == utl.get_answer(12)
+    assert str(solution()) == util.get_answer(12)
