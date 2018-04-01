@@ -18,4 +18,4 @@ def solution():
 
 
 if __name__ == '__main__':
-    assert str(solution()) == util.get_answer(1)
+    assert str(solution()) == util.get_answer(9)
