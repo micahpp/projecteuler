@@ -4,10 +4,8 @@ from timeit import default_timer as timer
 
 
 # TODO: add n_primes function that returns a list of n primes
-
 project_path = Path(__file__).parents[1]
 answers_path = Path(project_path, "data/answers.json")
-
 with open(answers_path) as f:
     answers = json.load(f)
 
